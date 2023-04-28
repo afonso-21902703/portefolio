@@ -1,0 +1,123 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    display: grid;
+    width: auto;
+    height: 100vh;
+    grid-template-columns: auto;
+    grid-template-rows: 10vh 1fr 5vh;
+    grid-template-areas:
+        'header header header'
+        'main main main'
+        'footer footer footer'
+    ;
+}
+
+header {
+    grid-area: header;
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+    padding-left: 10px;
+    background-color: var(--back-color);
+    color: var(--text-color);
+    transition: background-color 1s, color 1s;
+}
+
+#toggle-dark {
+    border: none;
+    background-color: var(--back-color);
+    transition: background-color 1s;
+}
+
+.material-symbols-rounded {
+    font-variation-settings:
+        'FILL' var(--fill),
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 48
+}
+
+
+nav {
+    grid-area: nav;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-right: 125px;
+}
+
+main {
+    grid-area: main;
+    padding: 10px;
+    background-color: var(--back-color);
+    color: var(--text-color);
+    transition: background-color 1s, color 1s;
+}
+
+
+
+div.image-with-centered-text {
+    margin: 30px;
+    /* border: 3px solid black; */
+    border-radius: 10px;
+}
+
+.image-with-centered-text {
+    background-image: url(images/david-marcu.jpg);
+    min-height: 500px;
+    /* background-attachment: fixed; */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.centered-text{
+
+}
+
+.image-no-parallax {
+    background-image: url(images/stars.avif);
+    min-height: 200px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+footer {
+    grid-area: footer;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: var(--text-color);
+    background-color: var(--back-color);
+    transition: background-color 1s, color 1s;
+}
+
+/* DARK-MODE */
+
+[data-theme="dark"] {
+    --back-color: #3B3B3B;
+    --text-color: #F7F7F7;
+    --fill: 0;
+}
+
+/* LIGHT-MODE */
+
+[data-theme="light"] {
+    --back-color: whitesmoke;
+    --text-color: black;
+    --fill: 1;
+}
