@@ -2,7 +2,7 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    color: black
+    color: black;
 }
 
 body {
@@ -14,7 +14,7 @@ body {
         'footer footer footer'
     ;
     grid-template-columns: auto;
-    grid-template-rows: 5vh 95vh 50vh;
+    grid-template-rows: 5vh 95vh 70vh 5vh;
 }
 
 header {
@@ -22,7 +22,7 @@ header {
     position: sticky;
     display: flex;
     flex-direction: row;
-    align-items: baseline;
+    align-items: center;
     background-color: #202F36;
     top: 0;
 }
@@ -101,57 +101,84 @@ main {
     /*opacity: 0.7;*/
     position: relative;
     z-index: -1;
+    display: grid;
+    grid-template-areas:
+        'nome aside';
+    grid-template-columns: 90% 10%;
 }
 
-main>* {
-    color: whitesmoke
+main * {
+    color: whitesmoke;
 }
 
-main>h1 {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.nome {
+    grid-area: nome;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
 
 aside {
-    position: absolute;
+    grid-area: aside;
     display: flex;
-    height: 95vh;
-    width: 10vw;
     justify-content: center;
     align-items: center;
     text-align: center;
-    right: 0px;
-    padding-right: 15px;
 }
 
 article {
     grid-area: article;
     background-color: #202F36;
+    display: grid;
+    grid-template-areas: 
+    'h1'
+    'about-me';
+    grid-template-columns:auto;
+    grid-template-rows: 10% 70%;
+    /* row-gap: 10px; */
 }
 
-
-article>h1 {
-    position: relative;
-    top: 20px;
-    left: 20px;
+article * {
     color: whitesmoke;
 }
 
-.sobre-mim {
-    position: relative;
-    top: 40px;
-    left: 20px;
-    width: 80%;
-    text-align: left;
+article>div:first-child{
+    grid-area: h1;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
 }
 
-.sobre-mim>* {
-    color: whitesmoke;
+.about-me{
+    grid-area: about-me;
+    display: flex;
+    justify-content: space-evenly;
+    align-content: space-between;
+    flex-wrap: wrap;
+    flex-direction: row;
+    row-gap: 20px;
+}
+
+.about-me>div{
+    background-color: #777;
+    border-radius: 20px;
+    height: 200px;
+    width: 300px;
+    padding: 10px;
+}
+
+.about-me>div:last-child{
+    height: 100px;
+    width: 300px;
 }
 
 footer {
+    display: flex;
     grid-area: footer;
     background-color: black;
+    color: whitesmoke;
+    justify-content: center;
+    align-items:center;
 }
