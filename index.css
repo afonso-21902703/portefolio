@@ -5,6 +5,10 @@
     color: black;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     display: grid;
     grid-template-areas:
@@ -98,7 +102,6 @@ main {
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
-    /*opacity: 0.7;*/
     position: relative;
     z-index: -1;
     display: grid;
@@ -131,10 +134,10 @@ article {
     grid-area: article;
     background-color: #202F36;
     display: grid;
-    grid-template-areas: 
-    'h1'
-    'about-me';
-    grid-template-columns:auto;
+    grid-template-areas:
+        'h1'
+        'about-me';
+    grid-template-columns: auto;
     grid-template-rows: 10% 70%;
     /* row-gap: 10px; */
 }
@@ -143,7 +146,7 @@ article * {
     color: whitesmoke;
 }
 
-article>div:first-child{
+article>div:first-child {
     grid-area: h1;
     display: flex;
     justify-content: center;
@@ -151,7 +154,7 @@ article>div:first-child{
     align-items: center;
 }
 
-.about-me{
+.about-me {
     grid-area: about-me;
     display: flex;
     justify-content: space-evenly;
@@ -161,17 +164,22 @@ article>div:first-child{
     row-gap: 20px;
 }
 
-.about-me>div{
+.about-me>div {
     background-color: #777;
     border-radius: 20px;
-    height: 200px;
+    max-height: 10%;
     width: 300px;
     padding: 10px;
+    overflow: hidden;
+    transition: max-height 500ms;
 }
 
-.about-me>div:last-child{
-    height: 100px;
-    width: 300px;
+.about-me>div:hover {
+   max-height: 100%;
+}
+
+.about-me *:first-child{
+    text-align: center;
 }
 
 footer {
@@ -180,5 +188,5 @@ footer {
     background-color: black;
     color: whitesmoke;
     justify-content: center;
-    align-items:center;
+    align-items: center;
 }
